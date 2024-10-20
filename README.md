@@ -1,25 +1,54 @@
-Fraud Dectection in Banking Systems:
-1. Data Loading and Exploration: Essential libraries like `pandas`, `numpy`, `matplotlib`, `seaborn`, and others are imported for data manipulation, visualization, and machine learning. The credit card dataset (`creditcard.csv`) is loaded into a DataFrame. Basic exploratory data analysis (EDA) is performed using functions like `shape`, `head()`, `tail()`, `describe()`, and `info()`, giving insights into the dataset's structure, summary statistics, and data types. A histogram is generated for all features to visualize their distributions.
+Fraud Detection in Banking System
+Overview
+This project aims to detect fraudulent credit card transactions using various machine learning techniques. The dataset used is from the Kaggle Credit Card Fraud Detection dataset, which contains transactions made by credit cards in September 2013.
 
-2. Feature Engineering: The `Time` feature is converted into two new features: `hour` and `second`, which represent the time of the transaction in a more interpretable format. Duplicate rows in the dataset are identified and removed to ensure data quality.
-
-3. Class Distribution Analysis: The distribution of the target variable (`Class`, where 1 indicates fraud and 0 indicates valid transactions) is analyzed. A pie chart displays the percentage of fraudulent and valid transactions, emphasizing the class imbalance.
-
-4. Data Preprocessing: The dataset is split into training and testing sets (80/20 split). `RobustScaler` is used to scale the features, which helps improve model performance, especially with outliers present in financial data.
-
-5. Feature Selection: The `SelectKBest` method with mutual information is applied to select the top features contributing to the classification task. The scores of each feature are printed and visualized using a bar chart.
-
-6. Model Development and Tuning: Several classifiers, including `LGBMClassifier`, `XGBClassifier`, and `LogisticRegression`, are evaluated. Bayesian optimization is employed to fine-tune hyperparameters for `LightGBM` and `XGBoost` models. Stratified K-Folds cross-validation is used to assess model performance with metrics like accuracy, precision, recall, F1 score, and ROC AUC.
-
-7. Handling Class Imbalance: Techniques such as SMOTE (Synthetic Minority Over-sampling Technique) and random under-sampling are used to address class imbalance, ensuring that both valid and fraudulent transactions are adequately represented in the training set.
-
-8. Voting Classifier: Multiple models are combined using a soft voting classifier to enhance performance. Various combinations of classifiers are evaluated.
-
-9. Performance Metrics Visualization: Key performance metrics (accuracy, precision, recall, F1 score, MCC, ROC AUC) are calculated and visualized in bar charts for easy comparison of different models. The ROC curves for each model are plotted to illustrate their true positive rates against false positive rates, providing insight into their discriminative abilities.
-
-10. Final Model Training and Saving: The best-performing model (in this case, `LGBMClassifier`) is trained on the resampled dataset. The trained model is saved using `pickle`, allowing for future use without needing to retrain.
-
-11. Output Summary: A summary table of performance metrics for all evaluated models is generated using `PrettyTable`, allowing for easy comparison and interpretation of results.
-
-Conclusion: The code encapsulates a robust end-to-end machine learning pipeline for credit card fraud detection, incorporating data preprocessing, feature engineering, model training, hyperparameter tuning, and performance evaluation. This thorough approach ensures that the resulting model is well-optimized for accurately identifying fraudulent transactions while addressing common challenges such as class imbalance.
-
+Table of Contents
+Data Loading and Initial Exploration
+Data Preprocessing
+Feature Selection
+Train-Test Split
+Model Training and Hyperparameter Optimization
+Model Evaluation
+Handling Imbalanced Data
+Voting Classifier
+Metrics Visualization
+Results Summary
+Model Saving
+Data Loading and Initial Exploration
+Import necessary libraries and load the credit card fraud dataset.
+Perform exploratory data analysis (EDA) including shape, head, tail, summary statistics, and histograms to visualize distributions.
+Data Preprocessing
+Create new features ('hour', 'second') and drop the original 'Time' feature.
+Check for and remove duplicate entries.
+Analyze the distribution of the target variable ('Class').
+Feature Selection
+Utilize SelectKBest with mutual information to select the most important features.
+Visualize the information gain of selected features.
+Train-Test Split
+Split the dataset into training and testing sets.
+Scale features using RobustScaler.
+Model Training and Hyperparameter Optimization
+Implement Bayesian Optimization for hyperparameter tuning of LightGBM and XGBoost models.
+Print optimized parameters for further use.
+Model Evaluation
+Train and evaluate various classification models (Logistic Regression, LightGBM, XGBoost, CatBoost) using cross-validation.
+Calculate performance metrics: accuracy, precision, recall, F1 score, and ROC AUC.
+Handling Imbalanced Data
+Apply SMOTE and Random Under Sampling techniques to address class imbalance.
+Evaluate model performance after applying these techniques.
+Voting Classifier
+Combine different classifiers into a voting classifier for improved performance.
+Evaluate results of the voting classifier models.
+Metrics Visualization
+Visualize performance metrics using bar plots and ROC curves for a comprehensive comparison of models.
+Results Summary
+Create a summary table of various algorithms and their performance metrics, and print it for review.
+Model Saving
+Save the final trained LightGBM model using pickle for future predictions.
+Requirements
+Python 3.x
+Libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, lightgbm, xgboost, catboost, imbalanced-learn, bayesian-optimization
+How to Run
+Clone the repository.
+Install the required libraries.
+Run the Jupyter Notebook or Python script provided to execute the analysis.
