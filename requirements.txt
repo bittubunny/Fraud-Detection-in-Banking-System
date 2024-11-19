@@ -1,12 +1,13 @@
 pandas==2.2.2
-numpy==1.26.4
+numpy==1.26.4  # Specify a compatible version
 matplotlib==3.9.2
 seaborn==0.12.2
 scikit-learn==1.3.0
-lightgbm==3.3.5
+lightgbm==4.5.0
 xgboost==1.7.5
-catboost==1.2.0
-imbalanced-learn==0.10.0
-bayesian-optimization==1.4.3
-prettytable==3.7.0
+catboost==1.2.6  # Check for the latest stable version
+imbalanced-learn==0.12.3
+bayesian-optimization==1.5.1
+prettytable==3.11.0
 streamlit==1.18.0
+pyyaml==5.4.1  # Specify a version to avoid build issues
